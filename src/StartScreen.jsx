@@ -26,14 +26,23 @@ export default class StartScreen extends React.Component {
   }
 
   render() {
-    return (<div>
-      <h2>Welcome to test!</h2>
+    return (
+    <Container>
+      <h1>DATASWIPER </h1>
       <Title>Hello</Title>
 
       <Button onClick={this.selectFolder}>Select Folder</Button>
-    </div>);
+    </Container>);
   }
 }
+
+const Container = styled.div`
+display: flex;
+`;
+
+const h1 = styled.h1`
+
+`;
 
 const Title = styled.p``;
 
