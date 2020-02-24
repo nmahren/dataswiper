@@ -37,7 +37,9 @@ export default class SwipeScreen extends React.Component {
     const { folder } = this.props;
 
     fs.readdir(`${folder}/in`, (err, files) => {
-      this.setState({ currentImage: files[0] });
+      alert(`file:///${folder}/in/${currentImage}`);
+
+      // this.setState({ currentImage: files[0] });
     });
   }
 
@@ -73,6 +75,7 @@ export default class SwipeScreen extends React.Component {
 
     console.log(currentImage);
 
+
     return (
       <div>
         <Image src={`file:///${folder}/in/${currentImage}`} />
@@ -81,6 +84,8 @@ export default class SwipeScreen extends React.Component {
           <Button onClick={this.deleteImage}>X</Button>
           <Button onClick={this.moveImage}>H</Button>
         </HorizontalGroup>
+
+        <div>Hello</div>
 
         <BackButton onClick={this.props.back}>Back</BackButton>
       </div>);
