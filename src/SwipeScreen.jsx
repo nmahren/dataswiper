@@ -86,25 +86,40 @@ export default class SwipeScreen extends React.Component {
     const { currentImageSrc } = this.state;
 
     return (
-      <div>
-        <Image src={`data:image/jpeg;base64,${currentImageSrc}`} />
+      <Container>
+        <InnerContainer>
+          <Image src={`data:image/jpeg;base64,${currentImageSrc}`} />
 
-        <HorizontalGroup>
-          <Button onClick={this.deleteImage}>X</Button>
-          <Button onClick={this.moveImage}>H</Button>
-        </HorizontalGroup>
+          <HorizontalGroup>
+            <Dislike onClick={this.deleteImage}>Delete</Dislike>
+            <Like onClick={this.moveImage}>Keep</Like>
+          </HorizontalGroup>
 
-        <div>Hello</div>
-
-        <BackButton onClick={this.props.back}>Back</BackButton>
-      </div>);
+          <BackButton onClick={this.props.back}>Back</BackButton>
+        </InnerContainer>
+      </Container>);
   }
 
 }
 
+const Container = styled.div`
+display: flex;
+height: 100vh;
+background-color: rgba(0, 0, 0, 0.05);
+`;
+
+const InnerContainer = styled.div`
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: space-around;
+padding: 50px;
+`;
+
 const Image = styled.img`
-width: 100px;
-height: 100px;
+width: 100%;
+max-height: 60%;
+object-fit: contain;
 `;
 
 const HorizontalGroup = styled.div`
@@ -112,13 +127,56 @@ display: flex;
 flex-direction: row;
 align-items: center;
 justify-content: space-between;
+width: 400px;
 `;
 
-const Button = styled.div`
-width: 50px;
-height: 50px;
-background-color: red;
-border-radius: 25px;
+const Like = styled.div`
+display: flex;
+align-items: center;
+flex-direction: column;
+padding: 15px 25px;
+border-radius: 100px;
+font-size: 23px;
+font-weight: bold;
+color: white;
+background-color: rgb(102, 204, 0);
+width: 100px;
+box-shadow: 0px 2px 5px rgba(102, 204, 0, 0.5);
+
+:hover  {
+  transition: all .2s ease-in-out;
+  transform: scale(1.1);
 `;
 
-const BackButton = styled.div``;
+const Dislike = styled.div`
+display: flex;
+align-items: center;
+flex-direction: column;
+padding: 15px 25px;
+border-radius: 100px;
+font-size: 23px;
+font-weight: bold;
+color: white;
+background-color: rgb(255, 51, 80);
+width: 100px;
+box-shadow: 0px 2px 5px rgba(255, 51, 80, 0.5);
+
+:hover  {
+  transition: all .2s ease-in-out;
+  transform: scale(1.1);
+`;
+
+const BackButton = styled.div`
+font-size: 20px;
+font-weight: bold;
+color: white;
+background-color: rgb(160, 160, 160);
+padding: 10px 20px;
+border-radius: 50px;
+box-shadow: 0px 2px 4px rgba(160, 160, 160, 0.5);
+margin-bottom: 0px;
+
+:hover  {
+  transition: all .2s ease-in-out;
+  transform: scale(1.1);
+`;

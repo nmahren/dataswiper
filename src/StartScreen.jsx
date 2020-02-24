@@ -26,15 +26,49 @@ export default class StartScreen extends React.Component {
   }
 
   render() {
-    return (<div>
-      <h2>Welcome to test!</h2>
-      <Title>Hello</Title>
+    return (
+    <Container>
+      <Name>DATASWIPER</Name>
+      <Title>Hier kommt die Anleitung</Title>
 
       <Button onClick={this.selectFolder}>Select Folder</Button>
-    </div>);
+    </Container>);
   }
 }
 
-const Title = styled.p``;
+const Container = styled.div`
+display: flex;
+height: 100vh;
+flex-direction: column;
+align-items: center;
+justify-content: space-around;
+background-color: rgba(0, 0, 0, 0.05);
 
-const Button = styled.div``;
+`;
+
+const Name = styled.h1`
+font-size: 50px;
+color: rgb(255, 186, 0);
+
+
+`;
+
+const Title = styled.p`
+font-size: 20px;
+`;
+
+const Button = styled.div`
+font-size: 20px;
+font-weight: bold;
+color: white;
+background-color: rgb(255,100,0);
+padding: 10px 20px;
+margin-bottom: 50px;
+border-radius: 50px;
+box-shadow: 0px 2px 4px rgba(255, 100, 0, 0.5);
+
+:hover  {
+  transition: all .2s ease-in-out;
+  transform: scale(1.1);
+  }
+`;
