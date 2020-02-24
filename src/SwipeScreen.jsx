@@ -11,6 +11,7 @@ export default class SwipeScreen extends React.Component {
 
     this.state = {
       currentImage: '',
+      currentImageSrc: '',
     };
 
     this.loadImages = this.loadImages.bind(this);
@@ -37,9 +38,19 @@ export default class SwipeScreen extends React.Component {
     const { folder } = this.props;
 
     fs.readdir(`${folder}/in`, (err, files) => {
-      alert(`file:///${folder}/in/${currentImage}`);
+      if (err) {
+        alert('Error opening folder: ', err);
+      } else {
+        fs.readFile(`${folder}/in/${files[0]}`, (err, data) => {
+          if (err) {
+            alert('Error reading file: ', err);
+          } else {
+            const imageSrc = Buffer.from(data).toString('base64');
 
-      // this.setState({ currentImage: files[0] });
+            this.setState({ currentImage: files[0], currentImageSrc: imageSrc });
+          }
+        });
+      }
     });
   }
 
@@ -70,15 +81,11 @@ export default class SwipeScreen extends React.Component {
   }
 
   render() {
-    const { folder } = this.props;
-    const { currentImage } = this.state;
-
-    console.log(currentImage);
-
+    const { currentImageSrc } = this.state;
 
     return (
       <div>
-        <Image src={`file:///${folder}/in/${currentImage}`} />
+        <Image src={`data:image/jpeg;base64,${currentImageSrc}`} />
 
         <HorizontalGroup>
           <Button onClick={this.deleteImage}>X</Button>
