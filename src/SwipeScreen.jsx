@@ -41,13 +41,15 @@ export default class SwipeScreen extends React.Component {
       if (err) {
         alert('Error opening folder: ', err);
       } else {
-        fs.readFile(`${folder}/in/${files[0]}`, (err, data) => {
+        const currentFile = files[Math.floor(Math.random() * files.length)];
+
+        fs.readFile(`${folder}/in/${currentFile}`, (err, data) => {
           if (err) {
             alert('Error reading file: ', err);
           } else {
             const imageSrc = Buffer.from(data).toString('base64');
 
-            this.setState({ currentImage: files[0], currentImageSrc: imageSrc });
+            this.setState({ currentImage: currentFile, currentImageSrc: imageSrc });
           }
         });
       }
