@@ -29,7 +29,11 @@ export default class StartScreen extends React.Component {
     return (
     <Container>
       <Name>DATASWIPER</Name>
-      <Title>Hier kommt die Anleitung</Title>
+      <Tutorial>
+        <li>Create a new folder with two nested folders, called 'in' and 'out'.</li>
+        <li>Make a copy of the dataset you want to sort and paste it into the folder 'in'</li>
+        <li>Then you can start sorting the dataset bei pressing 'j' on the keyboard to keep the image, according to your classification, or to delete it by pressing 'f'. You find the classificated dataset in the folder 'out'-</li>
+      </Tutorial>
 
       <Button onClick={this.selectFolder}>Select Folder</Button>
     </Container>);
@@ -53,7 +57,7 @@ color: rgb(255, 186, 0);
 
 `;
 
-const Title = styled.p`
+const Tutorial = styled.ul`
 font-size: 20px;
 `;
 

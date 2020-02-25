@@ -91,8 +91,8 @@ export default class SwipeScreen extends React.Component {
           <Image src={`data:image/jpeg;base64,${currentImageSrc}`} />
 
           <HorizontalGroup>
-            <Dislike onClick={this.deleteImage}>Delete</Dislike>
-            <Like onClick={this.moveImage}>Keep</Like>
+            <Dislike onClick={this.deleteImage}>Delete(f)</Dislike>
+            <Like onClick={this.moveImage}>Keep(j)</Like>
           </HorizontalGroup>
 
           <BackButton onClick={this.props.back}>Back</BackButton>
@@ -104,6 +104,7 @@ export default class SwipeScreen extends React.Component {
 
 const Container = styled.div`
 display: flex;
+align-items: center;
 height: 100vh;
 background-color: rgba(0, 0, 0, 0.05);
 `;
