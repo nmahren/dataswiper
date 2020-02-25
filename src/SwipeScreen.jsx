@@ -105,8 +105,10 @@ export default class SwipeScreen extends React.Component {
 const Container = styled.div`
 display: flex;
 align-items: center;
+justify-content: center;
 height: 100vh;
 background-color: rgba(0, 0, 0, 0.05);
+flex-direction: row;
 `;
 
 const InnerContainer = styled.div`
@@ -114,7 +116,9 @@ display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: space-around;
-padding: 50px;
+margin: 50px;
+height: calc(100vh - 100px);
+flex: 1;
 `;
 
 const Image = styled.img`

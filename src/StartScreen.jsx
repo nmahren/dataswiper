@@ -27,27 +27,38 @@ export default class StartScreen extends React.Component {
 
   render() {
     return (
-    <Container>
-      <Name>DATASWIPER</Name>
-      <Tutorial>
-        <li>Create a new folder with two nested folders, called 'in' and 'out'.</li>
-        <li>Make a copy of the dataset you want to sort and paste it into the folder 'in'</li>
-        <li>Then you can start sorting the dataset bei pressing 'j' on the keyboard to keep the image, according to your classification, or to delete it by pressing 'f'. You find the classificated dataset in the folder 'out'-</li>
-      </Tutorial>
+      <Container>
+        <InnerContainer>
+          <Name>DATASWIPER</Name>
+          <Tutorial>
+            <TutorialElement>Create a new folder with two nested folders, called 'in' and 'out'.</TutorialElement>
+            <TutorialElement>Make a copy of the dataset you want to sort and paste it into the folder 'in'</TutorialElement>
+            <TutorialElement>Then you can start sorting the dataset bei pressing 'j' on the keyboard to keep the image, according to your classification, or to delete it by pressing 'f'. You find the classificated dataset in the folder 'out'-</TutorialElement>
+          </Tutorial>
 
-      <Button onClick={this.selectFolder}>Select Folder</Button>
-    </Container>);
+          <Button onClick={this.selectFolder}>Select Folder</Button>
+        </InnerContainer>
+      </Container>);
   }
 }
 
 const Container = styled.div`
 display: flex;
-height: 100vh;
+
 flex-direction: column;
 align-items: center;
 justify-content: space-around;
 background-color: rgba(0, 0, 0, 0.05);
+height: 100vh;
+`;
 
+const InnerContainer = styled.div`
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: space-around;
+margin: 50px;
+height: calc(100vh - 100px);
 `;
 
 const Name = styled.h1`
@@ -59,6 +70,11 @@ color: rgb(255, 186, 0);
 
 const Tutorial = styled.ul`
 font-size: 20px;
+`;
+
+const TutorialElement = styled.li`
+margin-bottom: 40px;
+line-height: 35px;
 `;
 
 const Button = styled.div`
