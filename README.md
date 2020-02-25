@@ -7,13 +7,13 @@ DataSwiper helps you to filter images faster in the context of classification of
 
 ## Installation
 
-- Go to packages
-- Download either the macOS or Windows version
+- Go to releases
+- Download either the macOS or Windows zip
 
 ### macOS
 
 - Drag the app to the Applications folder
-- Right click and select open (Double click won't work)
+- Right click and select open (Double click won't work, you have to do it a couple of times!)
 - In the dialog, say open again
 
 ### Windows
