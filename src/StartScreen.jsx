@@ -31,9 +31,10 @@ export default class StartScreen extends React.Component {
         <InnerContainer>
           <Name>DATASWIPER</Name>
           <Tutorial>
-            <TutorialElement>Create a new folder with two nested folders, called 'in' and 'out'.</TutorialElement>
+            <TutorialElement>Create a new folder with two nested folders, called 'in' and 'out'</TutorialElement>
             <TutorialElement>Make a copy of the dataset you want to sort and paste it into the folder 'in'</TutorialElement>
-            <TutorialElement>Then you can start sorting the dataset bei pressing 'j' on the keyboard to keep the image, according to your classification, or to delete it by pressing 'f'. You find the classificated dataset in the folder 'out'-</TutorialElement>
+            <TutorialElement>Press select folder to choose the folder containing 'in' and 'out'</TutorialElement>
+            <TutorialElement>Then you can start sorting the dataset bei pressing 'j' on the keyboard to keep the image, according to your classification, or to delete it by pressing 'f'. You find the classified dataset in the folder 'out'</TutorialElement>
           </Tutorial>
 
           <Button onClick={this.selectFolder}>Select Folder</Button>
